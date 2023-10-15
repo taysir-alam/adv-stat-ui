@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Basketball Practice Stats</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            font-family: 'Anton', sans-serif;
+            color: rgba(138, 17, 82, 0.895);
+            margin-bottom: 20px;
+        }
+        table {
+            border: 1px solid white;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        .red {
+            color: red;
+        }
+        .yellow {
+            color: yellow;
+        }
+        .green {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1>MAC MBB PRACTICE STATS</h1>
+    <img src="{{ url_for('static', filename='test.png') }}" alt="Basketball Image" width="150">
+    <br>
+    <br>
+    <form method="POST">
+        <label for="team">Select a Drill:</label>
+        <select name="team" id="team">
+            <option value="">Drill</option>
+            {% for team in teams %}
+                <option value="{{ team }}" {% if team == selected_team %}selected{% endif %}>{{ team }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Show Stats">
+    </form>
+
+    {% if selected_team %}
+    <h2>Stats for {{ selected_team }}</h2>
+    <table>
+        <tr>
+            <th>Player</th>
+            <th>Totals/Percentages</th>
+        </tr>
+        {% for metric, value in metrics_and_values %}
+        <tr>
+            <td>{{ metric }}</td>
+            <td class="{% if value == '0/0' %}red{% elif value == '32/50' %}yellow{% elif value == '56/50' %}green{% else %}red{% endif %}">
+                {{ value }}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</body>
+</html>
