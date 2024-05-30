@@ -4,8 +4,9 @@ This is an interface I made to display and share performance statistics for Men'
 
 ![image](https://github.com/taysir-alam/adv-stat-ui/assets/85037857/9afe553a-7815-468d-9ef7-7acd733b29e8)
 
-There is a dashboard which shows makes/attempts for a specific drill, automatically sorting from higest to lowest:
+Once a drill is selected, a dashboard is displayed, showing makes/attempts for a specific drill and automatically sorting from higest to lowest (this dashboard also will color code the percetage, based on it;s value) :
 
-![image](https://github.com/taysir-alam/adv-stat-ui/assets/85037857/cc074d9a-7716-45df-8a31-3bf5fa7eaa4c)
+![image](https://github.com/taysir-alam/adv-stat-ui/assets/85037857/3cf92480-af33-4e07-8e87-83044d696353)
+
 
 
